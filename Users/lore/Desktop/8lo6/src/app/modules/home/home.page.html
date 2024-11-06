@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-menu side="end" content-id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content (click)="onProfileButtonPressed()">Perfil</ion-content>
+    <ion-content class="close-session-button" (click)="onSignOutButtonPressed()">Cerrar Sesión</ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+    
+    <div id="main-content">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-card class="Referencia">
+        <ion-card-header>
+          <ion-card-title class="tituloR">{{ user }}</ion-card-title>
+        </ion-card-header>
+        <img alt="fotoPredeterminada" src="https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_640.jpg"/>
+        <ion-card-content class="descripcionR">
+          Prueba subiendo tu primera foto, ¡solo presiona el signo "+"!
+        </ion-card-content>
+      </ion-card>
+    </div>
+  
+    <div class="añadirImagen">
+      <ion-fab slot="fixed" vertical="bottom" horizontal="center">
+        <ion-fab-button color="dark">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+  </ion-content>

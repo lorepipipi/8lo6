@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input [(ngModel)]="description" placeholder="Descripción del post"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-button (click)="onSelectImage()">Seleccionar Foto</ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="imagePath">
+    <img [src]="imagePath" alt="Foto seleccionada" width="100%" />
+  </ion-item>
+
+  <ion-button expand="full" (click)="onSubmitPost()">Subir Post</ion-button>
+</ion-content>

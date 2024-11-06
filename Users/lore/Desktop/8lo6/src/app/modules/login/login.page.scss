@@ -1,0 +1,39 @@
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  height: 100vh; /* Altura completa de la ventana */
+}
+
+/* Estilo del contenedor de login */
+.content-container {
+  background-color: rgb(255, 255, 255); /* Fondo blanco */
+  padding: 20px; /* Espacio interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: auto; /* Ancho del contenedor */
+  max-width: auto; /* Ancho máximo del contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Asegura que los elementos ocupen todo el ancho */
+  text-align: center;
+}
+
+/* Estilo del título */
+.tituloLogin {
+  font-size: 36px; /* Tamaño del título */
+  font-weight: bold; /* Negrita */
+  text-align: center; /* Centrar el título */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.SubTituloLogin p {
+  text-align: center; /* Centrar el subtítulo */
+  margin-bottom: 20px; /* Espacio debajo del subtítulo */
+}
+
+ion-header {
+  background-color: rgb(153, 153, 153);
+}
+  

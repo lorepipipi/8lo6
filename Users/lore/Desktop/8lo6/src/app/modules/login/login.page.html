@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+
+  <ion-content [fullscreen]="true">
+    <ion-toolbar class="SubTituloLogin">
+      <ion-title class="tituloLogin">8LO6</ion-title>
+      <p>Comparte tus ideas con el mundo. ¡Tu historia comienza aquí!</p>
+    </ion-toolbar>
+  
+    <div class="content-container">
+      <div class="contenidoLogin">
+        <ion-item>
+          <ion-input placeholder="Correo" type="text" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </div>
+    
+      <div class="button-container">
+        <ion-button color="dark" expand="block" (click)="onLoginButtonPressed()">Login</ion-button>
+        <p>¿No tienes una cuenta?
+          <ion-button fill="clear" size="small" (click)="onRegisterButtonPressed()">Registrate</ion-button>
+        </p>
+      </div>
+    </div>
+  </ion-content>
+  
+  </ion-header>

@@ -1,0 +1,45 @@
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+ion-label {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.Referencia {
+  width: 80%; /* Usa un porcentaje para que se ajuste al ancho del contenedor padre */
+  max-width: 300px; /* Establece un ancho máximo para que no sea demasiado grande */
+  height: auto; /* Mantiene la altura automática */
+  margin: 10px auto;
+}
+
+.tituloR {
+  font-size: 30px; /* Usa una unidad relativa para el tamaño de la fuente */
+  font-weight: bold;
+}
+
+/* Opcional: Ajusta la imagen y el contenido */
+.fotoPredeterminada {
+  width: 100%; /* Hace que la imagen ocupe el 100% del ancho del card */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.Referencia ion-card-content {
+  font-size: 12px; /* Tamaño de la fuente del contenido */
+}
