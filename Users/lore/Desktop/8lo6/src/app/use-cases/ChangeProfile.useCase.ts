@@ -42,7 +42,7 @@ export class UserUpdateUseCase {
 
         await this.storageService.set('user', updatedUserData);
 
-        return { success: true, message: 'Usuario actializado con éxito' };
+        return { success: true, message: 'Usuario actualizado con éxito' };
       } else {
         return { success: false, message: 'No se pudo actualizar el usuario' };
       }

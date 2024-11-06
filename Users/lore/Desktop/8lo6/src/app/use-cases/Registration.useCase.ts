@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { StorageService } from 'src/managers/StorageService';
 
 @Injectable({
   providedIn: 'root',
@@ -9,13 +10,14 @@ export class UserRegistrationUseCase {
 
   constructor(
     private fireAuth: AngularFireAuth,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private storageService: StorageService
   ) {}
 
-  async performRegistration(email: string, user: string, password: string): Promise<{ success: boolean; message: string }> {
+  async performRegistration(email: string, name: string, password: string): Promise<{ success: boolean; message: string }> {
     try {
       // Registra al usuario en Firebase Authentication
-      const userCredential = await this.fireAuth.createUserWithEmailAndPassword(email, password);
+      const userCredential = await this.fireAuth.signInWithEmailAndPassword(email, password);
       const user = userCredential.user;
 
       if (user) {
@@ -34,6 +36,7 @@ export class UserRegistrationUseCase {
 
         // Guarda la información del usuario en Realtime Database
         await this.db.object(`/users/${uid}`).set(userData);
+        await this.storageService.set('user', userData);
       }
 
       // Devuelve true si fue exitoso, con un mensaje

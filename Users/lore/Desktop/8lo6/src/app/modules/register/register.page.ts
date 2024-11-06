@@ -9,10 +9,10 @@ import { UserRegistrationUseCase } from 'src/app/use-cases/Registration.useCase'
   styleUrls: ['./register.page.scss'],
 })
 
-export class RegisterPage {
+export class RegisterPage {   
 
   email: string = '';
-  user: string = '';
+  name: string = '';
   password: string = '';
 
   constructor(
@@ -22,14 +22,14 @@ export class RegisterPage {
   ) { }
 
   async onRegisterButtonPressed() {
-    const result = await this.userRegistrationUseCase.performRegistration(this.email, this.user, this.password);
+    const result = await this.userRegistrationUseCase.performRegistration(this.email, this.name, this.password);
 
     if (result.success) {
       this.alert.showAlert(
         'Registro exitoso',
         'Ya eres parte de nuestro sistema',
         () => {
-          this.router.navigate(['/splash']);
+          this.router.navigate(['/login']);
         }
       );
     } else {
@@ -45,6 +45,7 @@ export class RegisterPage {
 
   clean() {
     this.email = '';
+    this.name = '';
     this.password = '';
   }
 }

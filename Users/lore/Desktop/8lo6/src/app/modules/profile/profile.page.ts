@@ -29,9 +29,9 @@ export class ProfilePage implements OnInit {
     const user = await this.storageService.get('user');
 
     if (user) {
-      this.userEmail = user.email && user.email.trim() !== '' ? user.email : 'Correo no disponible';
-      this.userName = user.displayName && user.displayName.trim() !== '' ? user.displayName : 'Nombre no disponible';
-      this.userPhotoURL = user.photoURL && user.photoURL.trim() !== '' ? user.photoURL : 'assets/default-avatar.png';
+      this.userEmail = user.email || 'Correo no disponible';
+      this.userName = user.displayName || 'Nombre no disponible';
+      this.userPhotoURL = user.photoURL || 'assets/default-avatar.png';
     }
   }
 
@@ -39,8 +39,12 @@ export class ProfilePage implements OnInit {
     const result = await this.userUpdateUseCase.performUserUpdate(this.userName);
 
     if (result.success) {
+      
+      const updatedUser = await this.storageService.get('user');
+      this.userName = updatedUser?.displayName || 'Nombre no disponible';
+
       this.alert.showAlert(
-        'Actualización Exitosa',
+        'Actualización exitosa',
         'Tu perfil ha sido actualizado correctamente.',
         () => { }
       );
