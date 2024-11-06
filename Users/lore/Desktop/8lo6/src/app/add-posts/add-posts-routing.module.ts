@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AddPostPage } from 'src/app/modules/add-posts/add-posts.page';
+import { PostService } from 'src/managers/addPostService';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddPostPage
+    component: PostService
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AddPostPageRoutingModule {}
+export class PostServiceRoutingModule {}

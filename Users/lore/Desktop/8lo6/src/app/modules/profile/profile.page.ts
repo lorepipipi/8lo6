@@ -14,8 +14,8 @@ import { UploadUserImageUseCase } from 'src/app/use-cases/ChangePhoto.useCase';
 export class ProfilePage implements OnInit {
 
   userEmail: string = '';
-  userName: string = '';
-  userPhotoURL: string = 'assets/default-avatar.png';
+  userName: string = '';  // Para almacenar el nombre de usuario
+  userPhotoURL: string = 'assets/default-avatar.png'; // Imagen predeterminada
 
   constructor(
     private storageService: StorageService,
@@ -26,9 +26,12 @@ export class ProfilePage implements OnInit {
   ) { }
 
   async ngOnInit() {
+    // Recupera el usuario guardado en StorageService
     const user = await this.storageService.get('user');
 
+    // Verifica si el usuario existe antes de asignar valores
     if (user) {
+      // Asigna valores al nombre, correo y foto
       this.userEmail = user.email || 'Correo no disponible';
       this.userName = user.displayName || 'Nombre no disponible';
       this.userPhotoURL = user.photoURL || 'assets/default-avatar.png';
@@ -39,10 +42,6 @@ export class ProfilePage implements OnInit {
     const result = await this.userUpdateUseCase.performUserUpdate(this.userName);
 
     if (result.success) {
-      
-      const updatedUser = await this.storageService.get('user');
-      this.userName = updatedUser?.displayName || 'Nombre no disponible';
-
       this.alert.showAlert(
         'Actualización exitosa',
         'Tu perfil ha sido actualizado correctamente.',
@@ -73,7 +72,7 @@ export class ProfilePage implements OnInit {
             });
 
             const imageUrl = image.dataUrl;
-
+            this.userPhotoURL = imageUrl;  // Actualiza la URL de la foto
           }
         },
         {
@@ -89,7 +88,7 @@ export class ProfilePage implements OnInit {
 
             const imageUrl = image.dataUrl;
 
-            //inicio de contenido nuevo
+            // Subir la imagen
             const uploadResult = await this.uploadUserImageUseCase.UploadUserImage(imageUrl);
             if (uploadResult.success) {
               this.alert.showAlert(

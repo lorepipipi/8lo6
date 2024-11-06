@@ -1,25 +1,24 @@
-// src/app/pages/add-post/add-post.page.ts
 import { Component } from '@angular/core';
-import { AddPostService } from 'src/app/use-cases/AddPost.useCase';
+import { PostService } from 'src/managers/addPostService';
 
 @Component({
-  selector: 'app-add-posts',
-  templateUrl: './add-posts.page.html',
-  styleUrls: ['./add-posts.page.scss'],
+  selector: 'app-add-post',
+  templateUrl: './add-post.page.html',
+  styleUrls: ['./add-post.page.scss'],
 })
 export class AddPostPage {
   description: string = '';
   imagePath: string | null = null;
 
-  constructor(private addPostService: AddPostService) {}
+  constructor(private postService: PostService) {}
 
   async onSelectImage() {
-    this.imagePath = await this.addPostService.selectImage();
+    this.imagePath = await this.postService.selectImage();
   }
 
   async onSubmitPost() {
     if (this.imagePath && this.description) {
-      await this.addPostService.uploadImage(this.imagePath, this.description);
+      this.postService.addPost(this.imagePath, this.description);
       this.description = '';
       this.imagePath = null;
       console.log('Post added successfully');

@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'add-posts',
-    loadChildren: () => import('./modules/add-posts/add-posts.module').then( m => m.AddPostPageModule)
+    loadChildren: () => import('./add-posts/add-posts.module').then( m => m.AddPostPageModule)
   },
 
 

@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AddPostPage } from 'src/app/modules/add-posts/add-posts.page';
+import { PostService } from 'src/managers/addPostService';
 
-describe('AddPostPage', () => {
-  let component: AddPostPage;
-  let fixture: ComponentFixture<AddPostPage>;
+describe('PostService', () => {
+  let component: PostService;
+  let fixture: ComponentFixture<PostService>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddPostPage);
+    fixture = TestBed.createComponent(PostService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
